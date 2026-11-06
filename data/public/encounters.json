@@ -1,0 +1,1847 @@
+{
+ "note": "Стычки с людьми (t341, черновик Claude 26.10.2026; тексты перепишет GPT t343). Формат сцен v1 + поля: chance — шанс в день (бросок по зерну и дате), daily — не чаще раза в сутки, action fight {enemies, lethal, first: hero|them}, refuse_money — отказ от денег (недоступен «Продажному»), take_money {amount}.",
+ "scenes": [
+  {
+   "id": "enc_street_thugs",
+   "title": "Во дворе",
+   "location": "nowon:street",
+   "once": false,
+   "daily": true,
+   "chance": 0.12,
+   "conditions": [
+    {
+     "type": "time_between",
+     "from": "21:00",
+     "to": "02:00"
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "Двое парней отлепились от стены и перегородили дорогу. Один лениво покачивал битой."
+    },
+    {
+     "speaker": "Парень с битой",
+     "text": "Слышь. Одолжи на проезд. Тысяч двадцать хватит.",
+     "emo": "serious"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Отдать 20 000 ₩",
+     "action": {
+      "type": "pay",
+      "amount": 20000,
+      "title": "Отдал хулиганам"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Купюры исчезли в чужом кармане. Парни расступились, даже не взглянув вслед."
+      }
+     ]
+    },
+    {
+     "label": "Уйти быстрым шагом",
+     "check": {
+      "skill": "agi",
+      "dc": 13
+     },
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} свернул за угол раньше, чем они успели решить, стоит ли догонять."
+      }
+     ],
+     "fail": {
+      "action": {
+       "type": "fight",
+       "enemies": [
+        "H-F-thug",
+        "H-F-bat"
+       ],
+       "first": "them"
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "Чужая рука поймала за капюшон."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Отказать",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-thug",
+       "H-F-bat"
+      ],
+      "first": "them"
+     },
+     "result_lines": [
+      {
+       "speaker": "Парень с битой",
+       "text": "Ну, как знаешь."
+      }
+     ]
+    },
+    {
+     "label": "Ударить первым",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-thug",
+       "H-F-bat"
+      ],
+      "first": "hero"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} не стал ждать."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "enc_collector",
+   "title": "У подъезда",
+   "location": "nowon:street",
+   "once": false,
+   "daily": true,
+   "chance": 0.5,
+   "conditions": [
+    {
+     "type": "resource_at_least",
+     "key": "hero.debt_collectors",
+     "value": 3
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "У подъезда «Сэхан-3» курил крепкий мужчина в тёмной куртке. Увидев героя, он бросил окурок и пошёл навстречу."
+    },
+    {
+     "speaker": "Коллектор",
+     "text": "Срок прошёл. Деньги где?",
+     "emo": "serious"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Пообещать вернуть на этой неделе",
+     "check": {
+      "skill": "talk",
+      "dc": 13,
+      "tags": [
+       "serious"
+      ]
+     },
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "Коллектор",
+       "text": "Неделя. Потом разговор будет другим."
+      }
+     ],
+     "fail": {
+      "action": {
+       "type": "fight",
+       "enemies": [
+        "H-F-collector"
+       ],
+       "first": "them"
+      },
+      "result_lines": [
+       {
+        "speaker": "Коллектор",
+        "text": "Это я уже слышал."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Взяться за «поручение» в счёт долга (50 000 ₩)",
+     "action": {
+      "type": "take_money",
+      "amount": 50000,
+      "fact": "hero.collector_errand"
+     },
+     "result_lines": [
+      {
+       "speaker": "Коллектор",
+       "text": "Вот и договорились. Пакет заберёшь завтра, адрес скину.",
+       "emo": "surprised"
+      }
+     ]
+    },
+    {
+     "label": "Отказаться от «поручения»",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-collector"
+      ],
+      "first": "them",
+      "refuse_money": true
+     },
+     "result_lines": [
+      {
+       "speaker": "Коллектор",
+       "text": "Гордый, значит."
+      }
+     ]
+    },
+    {
+     "label": "Ударить первым",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-collector"
+      ],
+      "first": "hero"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} шагнул вперёд первым."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "enc_recruiter",
+   "title": "Крепкий парень",
+   "location": "nowon:riverside",
+   "once": false,
+   "daily": true,
+   "chance": 0.2,
+   "conditions": [
+    {
+     "type": "fact",
+     "key": "hero.homeless",
+     "equals": true
+    },
+    {
+     "type": "fact",
+     "key": "hero.knows_fence",
+     "equals": false
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "У перил курил парень с ободранными костяшками. Он долго разглядывал героя, потом подошёл."
+    },
+    {
+     "speaker": "Парень с костяшками",
+     "text": "Ты не похож на тех, кто тут спит давно. Руки целы, глаза живые. Во врата ходить не боишься? Без бумаг. Платят долей."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Спросить, где искать",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.knows_fence",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "Парень с костяшками",
+       "text": "Рынок, проход за овощными рядами, склад тары. Вечером, кроме воскресенья и понедельника. Скажешь, что от реки."
+      }
+     ]
+    },
+    {
+     "label": "Уйти",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "Парень с костяшками",
+       "text": "Как знаешь. Холодно тут зимой.",
+       "emo": "serious"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t343_courtyard_demand",
+   "title": "Во дворе",
+   "location": "nowon:home",
+   "once": false,
+   "daily": true,
+   "chance": 0.05,
+   "conditions": [
+    {
+     "type": "time_between",
+     "from": "19:00",
+     "to": "23:30"
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "Во дворе у бокового входа двое парней перегородили дорожку. Один задержал взгляд на рюкзаке {hero}, второй стоял у ограждения."
+    },
+    {
+     "speaker": "Задира",
+     "text": "Двадцать тысяч. И можешь идти."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Уйти, не ввязываясь",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} прошёл вдоль ограждения и вышел на освещённый тротуар. Позади прозвучало недовольное слово, но никто не бросился следом."
+      }
+     ]
+    },
+    {
+     "label": "Ответить, что денег за проход не будет",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} не повысил голоса. Парень повторил сумму, но шагнул в сторону; разговор закончился без передачи денег."
+      }
+     ]
+    },
+    {
+     "label": "Драться",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-thug",
+       "H-F-thug"
+      ],
+      "first": "hero"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} не стал ждать, пока спор решится сам. Парни увидели, что он приготовился к драке."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t343_entrance_collector",
+   "title": "У подъезда",
+   "location": "nowon:home",
+   "once": false,
+   "daily": true,
+   "chance": 0.3,
+   "conditions": [
+    {
+     "type": "resource_at_least",
+     "key": "hero.debt_collectors",
+     "value": 3
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "У входной двери мужчина проверял фамилию в телефоне. Увидев {hero}, он убрал экран ладонью и загородил путь."
+    },
+    {
+     "speaker": "Взыскатель долга",
+     "text": "Платёж просрочен. Нужен ответ сегодня."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Уйти, не ввязываясь",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} обошёл мужчину у ступеней. Взыскатель остался с телефоном; вопрос долга от ухода не исчез."
+      }
+     ]
+    },
+    {
+     "label": "Попросить показать основание требования",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} потребовал номер договора и расчёт. Мужчина пролистал запись. Разговор не заменил оплату и не признал сумму правильной."
+      }
+     ]
+    },
+    {
+     "label": "Драться",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-collector"
+      ],
+      "first": "hero"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} сжал кулаки. Мужчина поднял взгляд от телефона; первый удар ещё не был нанесён."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t343_market_crates",
+   "title": "Между прилавками",
+   "location": "nowon:market",
+   "once": false,
+   "daily": true,
+   "chance": 0.04,
+   "conditions": [
+    {
+     "type": "time_between",
+     "from": "10:00",
+     "to": "20:00"
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "На узком проходе тележка задела ногу {hero}. Молодой грузчик резко остановился, а из-под брезента выпала пустая коробка."
+    },
+    {
+     "speaker": "Задира",
+     "text": "Смотри под ноги. Мне здесь ещё разгружать.",
+     "emo": "serious"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Уйти, не ввязываясь",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} отступил к свободной части прохода и дал тележке проехать. Коробку подняли без него."
+      }
+     ]
+    },
+    {
+     "label": "Предложить разойтись без ссоры",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} указал на свободный проход. Грузчик оттащил коробку и прокатил тележку мимо."
+      }
+     ]
+    },
+    {
+     "label": "Драться",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-thug"
+      ],
+      "first": "hero"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} шагнул к грузчику с намерением ударить. Спор грозил превратиться в драку."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t343_pc_queue",
+   "title": "Очередь к стойке",
+   "location": "nowon:pc_bang",
+   "once": false,
+   "daily": true,
+   "chance": 0.04,
+   "conditions": [
+    {
+     "type": "time_between",
+     "from": "14:00",
+     "to": "23:59"
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "У стойки ПК-бана парень отодвинул чужой стул прямо на дорогу {hero}. Монитор за спиной отсчитывал последние минуты сеанса."
+    },
+    {
+     "speaker": "Задира",
+     "text": "Я первый ждал. Не влезай."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Уйти, не ввязываясь",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} отошёл к свободному ряду. Очередь у стойки продолжила двигаться."
+      }
+     ]
+    },
+    {
+     "label": "Уточнить порядок очереди",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} показал на экран с очередью. Парень нехотя уступил проход. Сеанс никому не достался без оплаты."
+      }
+     ]
+    },
+    {
+     "label": "Драться",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-thug"
+      ],
+      "first": "hero"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} придвинулся к спорщику. По залу прошёл шорох отодвигаемых стульев."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t343_riverside_path",
+   "title": "На дорожке",
+   "location": "nowon:riverside",
+   "once": false,
+   "daily": true,
+   "chance": 0.06,
+   "conditions": [
+    {
+     "type": "time_between",
+     "from": "20:00",
+     "to": "02:00"
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "На повороте беговой дорожки трое парней остановились поперёк разметки. От скамейки тянуло сладким напитком; пустая бутылка покатилась к ботинку {hero}."
+    },
+    {
+     "speaker": "Задира",
+     "text": "Дорожка большая. Обойдёшь."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Уйти, не ввязываясь",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} свернул на дорожку вдоль ограждения. Музыка за спиной осталась такой же громкой."
+      }
+     ]
+    },
+    {
+     "label": "Попросить освободить проход",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} показал на разметку. Один из парней отступил, остальные тоже подвинулись. Места хватило."
+      }
+     ]
+    },
+    {
+     "label": "Драться",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-thug",
+       "H-F-knife"
+      ],
+      "first": "hero"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} развернулся лицом к компании. Пустая бутылка остановилась между ботинками."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t343_metro_jostle",
+   "title": "У выхода из метро",
+   "location": "nowon:metro",
+   "once": false,
+   "daily": true,
+   "chance": 0.04,
+   "conditions": [
+    {
+     "type": "time_between",
+     "from": "17:00",
+     "to": "21:00"
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "На ступенях к выходу плечо незнакомца врезалось в {hero}. Мужчина обернулся и резко придержал поручень."
+    },
+    {
+     "speaker": "Задира",
+     "text": "Куда торопишься? Людей вокруг не видишь?",
+     "emo": "serious"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Уйти, не ввязываясь",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} придержался правой стороны лестницы и продолжил путь. Поток пассажиров быстро закрыл незнакомца."
+      }
+     ]
+    },
+    {
+     "label": "Спокойно объяснить, что это было случайно",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} коротко объяснил, что его подтолкнули сзади. Незнакомец посмотрел на поток у дверей и освободил ступень."
+      }
+     ]
+    },
+    {
+     "label": "Драться",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-thug"
+      ],
+      "first": "hero"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} не ушёл с дороги. На лестнице стало теснее: люди пытались обогнуть спорящих."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t343_gym_remarks",
+   "title": "У спортзала",
+   "location": "nowon:taekwondo_gym",
+   "once": false,
+   "daily": true,
+   "chance": 0.04,
+   "conditions": [
+    {
+     "type": "time_between",
+     "from": "16:00",
+     "to": "21:00"
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "Возле дверей тренировочного зала два посетителя спорили, чья очередь занять место у мешка. Один заметил {hero} и задержал дверь локтем."
+    },
+    {
+     "speaker": "Задира",
+     "text": "Тоже пришёл спорить за очередь?"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Уйти, не ввязываясь",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} дождался, когда дверь освободят, и прошёл мимо. Спор у мешка продолжился без него."
+      }
+     ]
+    },
+    {
+     "label": "Предложить позвать администратора",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} предложил сверить время записи. Парни отвели руки от двери; решение осталось за расписанием зала."
+      }
+     ]
+    },
+    {
+     "label": "Драться",
+     "action": {
+      "type": "fight",
+      "enemies": [
+       "H-F-thug"
+      ],
+      "first": "hero"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} поставил сумку у стены и повернулся к спорщику. Рядом уже освобождали место."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t344_shelter_consult",
+   "title": "Свободное место",
+   "location": "nowon:social_center",
+   "once": false,
+   "daily": true,
+   "chance": 0.5,
+   "conditions": [
+    {
+     "type": "fact",
+     "key": "hero.homeless",
+     "equals": true
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "На приёмном столе лежал перечень документов для временного размещения. {hero} дождался своей очереди."
+    },
+    {
+     "speaker": "social_eunseo",
+     "text": "Запрос на ночлег я приму. Наличие места и решение о размещении — не одно и то же."
+    },
+    {
+     "speaker": "narrator",
+     "text": "Ынсо подвинула к краю стола бланк с графой обратного контакта."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Подать обращение о временном размещении",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.shelter_request_filed",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} заполнил бланк. Ынсо зарегистрировала обращение; подтверждения свободной койки пока не было."
+      }
+     ]
+    },
+    {
+     "label": "Спросить об иных вариантах ночлега",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Ынсо показала список действующих мест, где можно переночевать за плату, и предложила вернуться за ответом по заявлению."
+      }
+     ]
+    },
+    {
+     "label": "Уйти без заявления",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} забрал документы. В журнале не появилось обращения от его имени."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t344_station_night",
+   "title": "Под навесом",
+   "location": "nowon:metro",
+   "once": false,
+   "daily": true,
+   "chance": 0.4,
+   "conditions": [
+    {
+     "type": "fact",
+     "key": "hero.homeless",
+     "equals": true
+    },
+    {
+     "type": "time_between",
+     "from": "23:00",
+     "to": "05:00"
+    }
+   ],
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "Последние пассажиры ушли с платформы, и металлические створки у служебного прохода закрылись. {hero} задержался под навесом у выхода."
+    },
+    {
+     "speaker": "Ночной охранник",
+     "text": "У дверей ночевать нельзя. Если ждёшь первый поезд, не перекрывай проход.",
+     "emo": "serious"
+    },
+    {
+     "speaker": "narrator",
+     "text": "За спиной сторожа слышался гул вентиляции, впереди шёл холодный воздух с дороги."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Уйти к освещённой остановке",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} собрал вещи и вышел к остановке. Навес метро остался позади."
+      }
+     ]
+    },
+    {
+     "label": "Попросить несколько минут, чтобы найти ночлег",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Сторож позволил {hero} проверить расписание и убрать вещи с прохода. Обещания ночевать в помещении не последовало."
+      }
+     ]
+    },
+    {
+     "label": "Остаться у выхода на ночь",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.street_sleep_attempt",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} сел у стены, подложив под себя сумку. Оставаться до утра никто не разрешил; дальше всё зависело от действительных обходов и погоды."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t344_easy_money",
+   "title": "Лёгкие деньги",
+   "location": "nowon:metro",
+   "once": false,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "У выхода из метро {hero} остановился у расписания. Мужчина в чистой куртке подошёл со стороны стоянки и показал запечатанную дорожную сумку."
+    },
+    {
+     "speaker": "Мужчина в чистой куртке",
+     "text": "Сто пятьдесят тысяч за одну поездку в Инчхон. Ничего открывать не нужно. Передашь в руки — получишь деньги."
+    },
+    {
+     "speaker": "narrator",
+     "text": "Мужчина не назвал фирму, зато проверил, работает ли у {hero} телефон."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Отказаться и уйти",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.courier_refused",
+      "value": true,
+      "refuse_money": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} не взял сумку. Мужчина спокойно пообещал найти его, если передумает; у турникетов преследования не было."
+      }
+     ]
+    },
+    {
+     "label": "Уточнить, кто примет сумку и выдаст расписку",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "На просьбу назвать адрес и получателя мужчина ответил лишь обозначением грузового терминала. Документов о грузе он не показал."
+      }
+     ]
+    },
+    {
+     "label": "Согласиться перевезти сумку",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.courier_job",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} принял запечатанную сумку. На экране телефона появился адрес общественной зоны при грузовом терминале; имя отправителя так и не было указано."
+      }
+     ]
+    }
+   ],
+   "conditions": [
+    {
+     "type": "fact",
+     "key": "hero.homeless",
+     "equals": true
+    },
+    {
+     "type": "time_between",
+     "from": "12:00",
+     "to": "16:30"
+    },
+    {
+     "type": "fact",
+     "key": "hero.courier_job",
+     "equals": false
+    }
+   ],
+   "chance": 0.3,
+   "daily": true
+  },
+  {
+   "id": "t344_bag_route",
+   "title": "Дорога за сумку",
+   "location": "nowon:metro",
+   "once": false,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "Мужчина протянул {hero} сложенный листок. Вместо названия фирмы на нём были нарисованы два въезда и часы приёма."
+    },
+    {
+     "speaker": "Мужчина в чистой куртке",
+     "text": "Завтра с шести до семи вечера. В общественном коридоре терминала попросишь сотрудника по номеру на бирке. Никаких звонков незнакомым."
+    },
+    {
+     "speaker": "narrator",
+     "text": "На сумке виднелась узкая неповреждённая пломба. В расписке не было ни описи, ни печати."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Поехать в Инчхон с запечатанной сумкой",
+     "action": {
+      "type": "travel",
+      "to": "incheon:freight_public_access"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} выбрал поездку. Время шло и без него: назначенный приём мог закончиться раньше прибытия."
+      }
+     ]
+    },
+    {
+     "label": "Открыть сумку и проверить содержимое",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.courier_bag_opened",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} нарушил пломбу. Внутри лежали два чужих телефона и пачка карточек доступа с разными фамилиями. По одной из наклеек было видно, что часть вещей числилась на уволенном подрядчике."
+      }
+     ]
+    },
+    {
+     "label": "Вернуть сумку и отказаться от дальнейшей перевозки",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.courier_done",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} попытался вернуть груз, но мужчина уже отошёл от выхода. Передачу обратно ещё предстояло совершить лично."
+      }
+     ]
+    }
+   ],
+   "conditions": [
+    {
+     "type": "fact",
+     "key": "hero.courier_job",
+     "equals": true
+    },
+    {
+     "type": "fact",
+     "key": "hero.courier_bag_opened",
+     "equals": false
+    },
+    {
+     "type": "fact",
+     "key": "hero.courier_done",
+     "equals": false
+    }
+   ],
+   "daily": true
+  },
+  {
+   "id": "t344_receiver_on_time",
+   "title": "Время приёма",
+   "location": "incheon:freight_public_access",
+   "once": true,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "За стеклянной стеной грузового терминала работал зал ожидания. У прохода с номером на бирке стояла женщина в тёмной рабочей куртке."
+    },
+    {
+     "speaker": "Приёмщик",
+     "text": "Бирку покажи. Потом поставь сумку на весы."
+    },
+    {
+     "speaker": "narrator",
+     "text": "На стойке не оказалось ни фирменного бланка отправителя, ни привычной описи вложений."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Передать запечатанную сумку и дождаться оплаты",
+     "action": {
+      "type": "take_money",
+      "amount": 150000,
+      "fact": "hero.courier_done",
+      "title": "Оплата за доставку"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Приёмщица сверила номер бирки с листком и получила сумку. Оплата была передана только после подтверждённого приёма."
+      }
+     ]
+    },
+    {
+     "label": "Потребовать расписку с перечислением содержимого",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Женщина повторила, что такую опись не выдаёт. Она не получила груз и не заплатила за доставку."
+      }
+     ]
+    },
+    {
+     "label": "Не отдавать сумку и покинуть зал",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.courier_delivery_refused_at_terminal",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} забрал сумку со стойки. Приёмщица записала номер бирки, но не сумела остановить его на общественном проходе."
+      }
+     ]
+    }
+   ],
+   "conditions": [
+    {
+     "type": "fact",
+     "key": "hero.courier_job",
+     "equals": true
+    },
+    {
+     "type": "fact",
+     "key": "hero.courier_bag_opened",
+     "equals": false
+    },
+    {
+     "type": "time_between",
+     "from": "18:00",
+     "to": "19:00"
+    }
+   ]
+  },
+  {
+   "id": "t344_bag_opened",
+   "title": "Нарушенная пломба",
+   "location": "incheon:freight_public_access",
+   "once": true,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "Приёмщица наклонилась к пломбе, проверила край ленты и отступила от стойки."
+    },
+    {
+     "speaker": "Приёмщик",
+     "text": "Пломбу снимали. Я не могу принять это как закрытый груз."
+    },
+    {
+     "speaker": "narrator",
+     "text": "Номер бирки она записала на обороте своего листка."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Объяснить, почему сумку вскрыли",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.courier_admitted_opening",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} рассказал, что проверил чужой груз. Женщина не согласилась принять его и попросила убрать сумку со стойки."
+      }
+     ]
+    },
+    {
+     "label": "Предложить провести передачу с официальной описью",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Приёмщица отказалась подписывать опись неизвестного отправителя. Сумка осталась у {hero}."
+      }
+     ]
+    },
+    {
+     "label": "Уйти с сумкой и сохранить имеющиеся сведения",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.courier_kept_bag_evidence",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} вышел к освещённой стороне терминала. Пломба и номер бирки оставались реальными следами, но сами по себе ничего не доказывали о виновности всей цепочки."
+      }
+     ]
+    }
+   ],
+   "conditions": [
+    {
+     "type": "fact",
+     "key": "hero.courier_bag_opened",
+     "equals": true
+    }
+   ]
+  },
+  {
+   "id": "t344_after_deadline",
+   "title": "Позднее расписания",
+   "location": "incheon:freight_public_access",
+   "once": true,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "Освещённое окно приёма было закрыто. На стекле остался только номер рабочего телефона, не связанный с предложением у метро."
+    },
+    {
+     "speaker": "narrator",
+     "text": "{hero} сверил время с листком. Назначенная встреча уже закончилась."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Вернуться в Норвон и искать отправителя",
+     "action": {
+      "type": "travel",
+      "to": "nowon:metro"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} забрал сумку обратно. Возврат её владельцу оставался отдельным действием, если того удастся найти."
+      }
+     ]
+    },
+    {
+     "label": "Проверить, есть ли законная справочная терминала",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "В справочной не знали ни номера бирки, ни компании отправителя. Никто не выдал сведения, которых не было в журнале."
+      }
+     ]
+    },
+    {
+     "label": "Сохранить листок и не продолжать перевозку",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.courier_deadline_missed",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} сохранил записанный маршрут. Обещанные деньги ему не выплатили."
+      }
+     ]
+    }
+   ],
+   "conditions": [
+    {
+     "type": "fact",
+     "key": "hero.courier_job",
+     "equals": true
+    },
+    {
+     "type": "fact",
+     "key": "hero.courier_bag_opened",
+     "equals": false
+    },
+    {
+     "type": "fact",
+     "key": "hero.courier_done",
+     "equals": false
+    },
+    {
+     "type": "time_between",
+     "from": "19:01",
+     "to": "17:59"
+    }
+   ]
+  },
+  {
+   "id": "t344_threat_again",
+   "title": "Знакомый голос",
+   "location": "nowon:metro",
+   "once": true,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "У выхода из метро {hero} услышал короткое обращение. Тот самый мужчина стоял у стойки с газетами."
+    },
+    {
+     "speaker": "Мужчина в чистой куртке",
+     "text": "Я говорил, что найду. Теперь объясни, где сумка."
+    },
+    {
+     "speaker": "narrator",
+     "text": "Мужчина держался достаточно близко, чтобы говорить вполголоса, но проход вокруг оставался свободным."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Спокойно повторить отказ",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.courier_threat_repeated",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} не стал спорить о деньгах. Мужчина отвернулся, но имя или адрес героя от этого не узнал."
+      }
+     ]
+    },
+    {
+     "label": "Потребовать прекратить угрозы",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} потребовал оставить его в покое. Несколько прохожих обернулись; мужчина замолчал и отошёл к колонне."
+      }
+     ]
+    },
+    {
+     "label": "Уйти к людному выходу",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} прошёл к людной лестнице. Мужчина остался на прежнем месте; преследование не возникло из одного обещания."
+      }
+     ]
+    }
+   ],
+   "conditions": [
+    {
+     "type": "fact",
+     "key": "hero.courier_refused",
+     "equals": true
+    },
+    {
+     "type": "fact",
+     "key": "hero.homeless",
+     "equals": true
+    }
+   ]
+  },
+  {
+   "id": "t345_school_papers",
+   "title": "За дверью учительской",
+   "location": "nowon:school",
+   "once": true,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "После занятий в коридоре ещё горел свет. Из приоткрытой двери учительской доносился шелест листов; на столе возле двери лежали пустые бланки, предназначенные для учащихся."
+    },
+    {
+     "speaker": "haerin",
+     "text": "Если заявление не готово, пусть принесут завтра. Заполнять за них никто не будет."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Тихо прислушаться из коридора",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.t345_school_deadline_heard",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} различил дату приёма заявлений и понял, что речь шла об обычных школьных бумагах. Чужие заполненные анкеты остались вне поля зрения."
+      }
+     ],
+     "check": {
+      "skill": "per",
+      "dc": 13,
+      "tags": [
+       "hearing"
+      ]
+     },
+     "fail": {
+      "action": {
+       "type": "set_fact",
+       "key": "hero.t345_school_listen_failed",
+       "value": true
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "{hero} уловил только обрывки слов: за дверью заскрипел стул, и разговор стих."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Пройти мимо",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} не стал задерживаться у учительской."
+      }
+     ]
+    },
+    {
+     "label": "Постучать и спросить о сроке",
+     "action": {
+      "type": "trust",
+      "npc": "haerin",
+      "d": 0,
+      "minutes": 3
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Хэрин отложила пустой бланк и назвала срок подачи. Она не показала чужие анкеты."
+      }
+     ]
+    }
+   ],
+   "window": [
+    "2026-09-09T15:40",
+    "2026-09-09T16:20"
+   ]
+  },
+  {
+   "id": "t345_clinic_open_door",
+   "title": "Приоткрытая дверь",
+   "location": "nowon:clinic",
+   "once": true,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "В коридоре клиники {hero} остановился перед дверью с неплотно прикрытой створкой. Чиын сверяла записи у стойки, а из кабинета доносились голоса."
+    },
+    {
+     "speaker": "doctor_doyun",
+     "text": "Список лекарств отделите от согласий. По чужим пациентам ничего не подписывайте заочно."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Прислушаться из коридора",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.t345_clinic_words_overheard",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "До {hero} донеслись слова о поставке и пустой графе в форме. Ни названий пациентов, ни подписей он не увидел."
+      }
+     ],
+     "check": {
+      "skill": "per",
+      "dc": 16,
+      "tags": [
+       "hearing"
+      ]
+     },
+     "fail": {
+      "action": {
+       "type": "set_fact",
+       "key": "hero.t345_clinic_overheard_failed",
+       "value": true
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "{hero} расслышал лишь окончание разговора: дверь закрылась, и голоса пропали."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Незаметно пройти за служебную дверь",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.t345_clinic_service_seen",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} успел заглянуть в пустую часть коридора, но дальше путь перекрывала закрытая дверь. Документов внутри не было видно."
+      }
+     ],
+     "check": {
+      "skill": "stealth",
+      "dc": 19,
+      "watcher_per": 10
+     },
+     "fail": {
+      "action": {
+       "type": "set_fact",
+       "key": "hero.t345_clinic_unauthorized_attempt_seen",
+       "value": true
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "Чиын заметила {hero} у служебного прохода и попросила вернуться к стойке. Если герой откажется, она сможет вызвать охрану или полицию обычным способом."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Спросить, где принимают заявления",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Чиын показала на регистратуру и объяснила порядок обращения. {hero} не получил доступа к чужим бумагам."
+      }
+     ]
+    }
+   ],
+   "window": [
+    "2026-10-02T16:45",
+    "2026-10-02T17:15"
+   ]
+  },
+  {
+   "id": "t345_commission_follow",
+   "title": "После покупки",
+   "location": "nowon:commission_shop",
+   "once": true,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "У прилавка покупательница сложила чек и убрала пакет в сумку. На улице она задержалась у вывески, сверяя адрес на телефоне."
+    },
+    {
+     "speaker": "Курьер",
+     "text": "Покупка закончена. Если нужны уточнения по чеку, подайте запрос в магазине."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Проследить с расстояния до поворота",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.t345_commission_exit_direction_seen",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} не приближался. Он увидел, в какую сторону ушла покупательница, но не узнал ни её адреса, ни содержимого пакета."
+      }
+     ],
+     "check": {
+      "skill": "stealth",
+      "dc": 16,
+      "watcher_per": 10
+     },
+     "fail": {
+      "action": {
+       "type": "set_fact",
+       "key": "hero.t345_commission_follow_notice",
+       "value": true
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "Покупательница обернулась и заметила, что {hero} шёл следом. Она ускорила шаг и могла сообщить о подозрительном человеке."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Незаметно снять с открытой стойки брошенную ценовую бирку",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.t345_commission_public_tag_taken",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} подобрал оставленную на прилавке бирку. На ней было указано лишь то, что продавалось публично: цена и краткое название товара."
+      }
+     ],
+     "check": {
+      "skill": "stealth",
+      "dc": 13,
+      "watcher_per": 10
+     },
+     "fail": {
+      "action": {
+       "type": "set_fact",
+       "key": "hero.t345_commission_tag_attempt_seen",
+       "value": true
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "{hero} потянулся к стойке, но уронил бирку на пол. Покупательница заметила неловкое движение; вещь осталась на месте."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Уточнить, есть ли общедоступный каталог",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Из вывешенных сведений {hero} получил только обычные цены и часы работы."
+      }
+     ]
+    }
+   ],
+   "window": [
+    "2026-12-18T11:55",
+    "2026-12-18T12:10"
+   ],
+   "conditions": [
+    {
+     "type": "event",
+     "id": "courier_haeun_buys_t18",
+     "status": "done"
+    }
+   ]
+  },
+  {
+   "id": "t345_notice_track",
+   "title": "Бумага на доске",
+   "location": "nowon:market",
+   "once": true,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "У рынка на доске объявлений появился лист с обещанием редкой покупки. {hero} увидел скотч на краях и свежие следы клея под бумагой."
+    },
+    {
+     "speaker": "market_vendor_hyejin",
+     "text": "Всякое тут вешают. Я за чужие объявления не отвечаю."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Присмотреться к мелкому шрифту",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.t345_ad_public_terms_read",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} прочёл контакты и условия, напечатанные внизу листа. Это были слова объявления, не доказательство происхождения товара."
+      }
+     ],
+     "check": {
+      "skill": "per",
+      "dc": 13
+     },
+     "fail": {
+      "action": {
+       "type": "set_fact",
+       "key": "hero.t345_ad_terms_unread",
+       "value": true
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "{hero} различил только крупный заголовок. Нижние строки смазались и ничего надёжного не подсказали."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Подслушать спор о листовке, не подходя",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.t345_ad_ordinary_argument_heard",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} разобрал, что посетители спорили о цене. Никто не назвал подтверждённого владельца предмета."
+      }
+     ],
+     "check": {
+      "skill": "per",
+      "dc": 16,
+      "tags": [
+       "hearing"
+      ]
+     },
+     "fail": {
+      "action": {
+       "type": "set_fact",
+       "key": "hero.t345_ad_argument_missed",
+       "value": true
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "Гомон перекрыл слова. {hero} не смог понять, о чём шёл спор."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Показать Хеджин бумагу и уйти",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "Хеджин взглянула на лист и посоветовала не отдавать деньги без документов."
+      }
+     ]
+    }
+   ],
+   "window": [
+    "2027-02-12T16:10",
+    "2027-02-18T18:00"
+   ]
+  },
+  {
+   "id": "t345_old_zone_fence",
+   "title": "За линией ограждения",
+   "location": "nowon:old_breach_zone",
+   "once": true,
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "За сетчатым ограждением тянулась заброшенная дорожка. На табличке у ворот ещё читалось предупреждение о закрытой зоне; охранник стоял возле журналa посетителей."
+    },
+    {
+     "speaker": "Охранник",
+     "text": "Без разрешения дальше нельзя. Если есть документ, покажи здесь.",
+     "emo": "serious"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Скрытно пройти за ворота",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.t345_old_zone_outer_fence_crossed",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} оказался за внешними воротами, но следующий проход был заперт. Он не попал в закрытые помещения, а путь обратно оставался тем же."
+      }
+     ],
+     "check": {
+      "skill": "stealth",
+      "dc": 16,
+      "watcher_per": 20
+     },
+     "fail": {
+      "action": {
+       "type": "set_fact",
+       "key": "hero.t345_old_zone_guard_stopped",
+       "value": true
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "Охранник заметил {hero} у калитки и остановил его. При отказе назвать себя мог вызвать полицию; задержание не наступало само собой."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Попытаться прочитать схему из-за решётки",
+     "action": {
+      "type": "set_fact",
+      "key": "hero.t345_old_zone_public_sign_read",
+      "value": true
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} разобрал на стенде границы доступного участка и номер управляющей организации. Внутренние планы зданий стенд не содержал."
+      }
+     ],
+     "check": {
+      "skill": "per",
+      "dc": 13
+     },
+     "fail": {
+      "action": {
+       "type": "set_fact",
+       "key": "hero.t345_old_zone_sign_unread",
+       "value": true
+      },
+      "result_lines": [
+       {
+        "speaker": "narrator",
+        "text": "Из-за бликов и царапин {hero} разобрал только предупреждающую надпись."
+       }
+      ]
+     }
+    },
+    {
+     "label": "Отойти от ворот",
+     "action": {
+      "type": "leave"
+     },
+     "result_lines": [
+      {
+       "speaker": "narrator",
+       "text": "{hero} вернулся к общественной дорожке, не нарушая ограждения."
+      }
+     ]
+    }
+   ],
+   "window": [
+    "2027-05-03T15:00",
+    "2027-05-03T16:30"
+   ]
+  }
+ ]
+}

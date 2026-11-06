@@ -1,0 +1,1397 @@
+{
+ "note": "Противники-люди (t340, Claude 26.10.2026). Обычные люди без маны; пробуждённые F–C. Сюжетные злодеи — отдельными записями под сцены. Опыта, монет Системы и достижений за людей нет. На нуле HP человек падает без сознания; смерть — только если герой добивает.",
+ "species": [
+  {
+   "id": "H-F-thug",
+   "name": "Задира",
+   "rank": "F",
+   "role": "regular",
+   "human": true,
+   "awakened": false,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 110,
+   "atk": 7,
+   "stats": {
+    "str": 12,
+    "agi": 10,
+    "vit": 11,
+    "per": 9,
+    "mag": 0
+   },
+   "init": 10,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 7
+    },
+    {
+     "name": "Наезд",
+     "prep": 0,
+     "cd": 2,
+     "m": "fear",
+     "hit": -3,
+     "turns": 3
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    3000,
+    20000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-F-bat",
+   "name": "Задира с битой",
+   "rank": "F",
+   "role": "regular",
+   "human": true,
+   "awakened": false,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 110,
+   "atk": 10,
+   "stats": {
+    "str": 13,
+    "agi": 9,
+    "vit": 11,
+    "per": 9,
+    "mag": 0
+   },
+   "init": 9,
+   "dmg_type": "дробящее",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 10
+    },
+    {
+     "name": "Замах битой",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 18
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    3000,
+    20000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "бита",
+   "look": ""
+  },
+  {
+   "id": "H-F-knife",
+   "name": "Человек с ножом",
+   "rank": "F",
+   "role": "regular",
+   "human": true,
+   "awakened": false,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 100,
+   "atk": 8,
+   "stats": {
+    "str": 10,
+    "agi": 13,
+    "vit": 10,
+    "per": 11,
+    "mag": 0
+   },
+   "init": 13,
+   "dmg_type": "колющее",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 8
+    },
+    {
+     "name": "Выпад ножом",
+     "prep": 0,
+     "cd": 1,
+     "m": "attack",
+     "dmg": 11
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    5000,
+    40000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "нож",
+   "look": ""
+  },
+  {
+   "id": "H-F-collector",
+   "name": "Взыскатель долга",
+   "rank": "F",
+   "role": "regular",
+   "human": true,
+   "awakened": false,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 130,
+   "atk": 8,
+   "stats": {
+    "str": 14,
+    "agi": 9,
+    "vit": 13,
+    "per": 10,
+    "mag": 0
+   },
+   "init": 9,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 8
+    },
+    {
+     "name": "Захват",
+     "prep": 1,
+     "cd": 2,
+     "m": "bind",
+     "turns": 1
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    20000,
+    80000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-F-guard",
+   "name": "Охранник с дубинкой",
+   "rank": "F",
+   "role": "regular",
+   "human": true,
+   "awakened": false,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 130,
+   "atk": 9,
+   "stats": {
+    "str": 12,
+    "agi": 10,
+    "vit": 13,
+    "per": 12,
+    "mag": 0
+   },
+   "init": 10,
+   "dmg_type": "дробящее",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 9
+    },
+    {
+     "name": "Удар дубинкой",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 14
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    5000,
+    30000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "дубинка",
+   "look": ""
+  },
+  {
+   "id": "H-F-fighter",
+   "name": "Боец ближнего боя",
+   "rank": "F",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 110,
+   "atk": 9,
+   "stats": {
+    "str": 12,
+    "agi": 9,
+    "vit": 11,
+    "per": 8,
+    "mag": 8
+   },
+   "init": 9,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 9
+    },
+    {
+     "name": "Сокрушающий удар",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 20
+    },
+    {
+     "name": "Боевой настрой",
+     "prep": 0,
+     "cd": 4,
+     "m": "buff",
+     "dmg_pct": 30,
+     "turns": 3,
+     "target": "ally_or_self"
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    20000,
+    80000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-F-rogue",
+   "name": "Манёвренный охотник",
+   "rank": "F",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 90,
+   "atk": 7,
+   "stats": {
+    "str": 9,
+    "agi": 12,
+    "vit": 9,
+    "per": 10,
+    "mag": 8
+   },
+   "init": 12,
+   "dmg_type": "режущее",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 7
+    },
+    {
+     "name": "Уход в сторону",
+     "prep": 0,
+     "cd": 3,
+     "m": "evade"
+    },
+    {
+     "name": "Метка",
+     "prep": 0,
+     "cd": 3,
+     "m": "mark",
+     "hit": 4,
+     "turns": 3
+    },
+    {
+     "name": "Двойной порез",
+     "prep": 0,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 10
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    20000,
+    80000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-F-caster",
+   "name": "Охотник с активной способностью",
+   "rank": "F",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 90,
+   "atk": 7,
+   "stats": {
+    "str": 8,
+    "agi": 9,
+    "vit": 9,
+    "per": 10,
+    "mag": 13
+   },
+   "init": 9,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 7
+    },
+    {
+     "name": "Энергетический заряд",
+     "prep": 1,
+     "cd": 1,
+     "m": "attack",
+     "dmg": 14
+    },
+    {
+     "name": "Щит маны",
+     "prep": 0,
+     "cd": 4,
+     "m": "shield",
+     "value": 40,
+     "turns": 3,
+     "target": "ally_or_self"
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    20000,
+    80000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-F-boss",
+   "name": "Старший группы",
+   "rank": "F",
+   "role": "elite",
+   "human": true,
+   "awakened": true,
+   "fearless": true,
+   "biome": "",
+   "archetype": "human",
+   "hp": 130,
+   "atk": 10,
+   "stats": {
+    "str": 14,
+    "agi": 11,
+    "vit": 13,
+    "per": 11,
+    "mag": 8
+   },
+   "init": 11,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 10
+    },
+    {
+     "name": "Сокрушающий удар",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 24
+    },
+    {
+     "name": "Приказ",
+     "prep": 0,
+     "cd": 4,
+     "m": "buff",
+     "dmg_pct": 30,
+     "turns": 3,
+     "target": "ally"
+    },
+    {
+     "name": "Давление",
+     "prep": 0,
+     "cd": 3,
+     "m": "fear",
+     "hit": -4,
+     "turns": 3
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    60000,
+    240000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-E-fighter",
+   "name": "Боец ближнего боя",
+   "rank": "E",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 220,
+   "atk": 20,
+   "stats": {
+    "str": 24,
+    "agi": 18,
+    "vit": 22,
+    "per": 16,
+    "mag": 10
+   },
+   "init": 18,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 20
+    },
+    {
+     "name": "Сокрушающий удар",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 44
+    },
+    {
+     "name": "Боевой настрой",
+     "prep": 0,
+     "cd": 4,
+     "m": "buff",
+     "dmg_pct": 30,
+     "turns": 3,
+     "target": "ally_or_self"
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    80000,
+    320000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-E-rogue",
+   "name": "Манёвренный охотник",
+   "rank": "E",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 180,
+   "atk": 16,
+   "stats": {
+    "str": 18,
+    "agi": 25,
+    "vit": 18,
+    "per": 20,
+    "mag": 10
+   },
+   "init": 25,
+   "dmg_type": "режущее",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 16
+    },
+    {
+     "name": "Уход в сторону",
+     "prep": 0,
+     "cd": 3,
+     "m": "evade"
+    },
+    {
+     "name": "Метка",
+     "prep": 0,
+     "cd": 3,
+     "m": "mark",
+     "hit": 4,
+     "turns": 3
+    },
+    {
+     "name": "Двойной порез",
+     "prep": 0,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 24
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    80000,
+    320000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-E-caster",
+   "name": "Охотник с активной способностью",
+   "rank": "E",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 180,
+   "atk": 14,
+   "stats": {
+    "str": 14,
+    "agi": 18,
+    "vit": 18,
+    "per": 20,
+    "mag": 26
+   },
+   "init": 18,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 14
+    },
+    {
+     "name": "Энергетический заряд",
+     "prep": 1,
+     "cd": 1,
+     "m": "attack",
+     "dmg": 28
+    },
+    {
+     "name": "Щит маны",
+     "prep": 0,
+     "cd": 4,
+     "m": "shield",
+     "value": 80,
+     "turns": 3,
+     "target": "ally_or_self"
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    80000,
+    320000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-E-boss",
+   "name": "Старший группы",
+   "rank": "E",
+   "role": "elite",
+   "human": true,
+   "awakened": true,
+   "fearless": true,
+   "biome": "",
+   "archetype": "human",
+   "hp": 260,
+   "atk": 22,
+   "stats": {
+    "str": 28,
+    "agi": 22,
+    "vit": 26,
+    "per": 22,
+    "mag": 16
+   },
+   "init": 22,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 22
+    },
+    {
+     "name": "Сокрушающий удар",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 53
+    },
+    {
+     "name": "Приказ",
+     "prep": 0,
+     "cd": 4,
+     "m": "buff",
+     "dmg_pct": 30,
+     "turns": 3,
+     "target": "ally"
+    },
+    {
+     "name": "Давление",
+     "prep": 0,
+     "cd": 3,
+     "m": "fear",
+     "hit": -4,
+     "turns": 3
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    240000,
+    960000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-D-fighter",
+   "name": "Боец ближнего боя",
+   "rank": "D",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 380,
+   "atk": 38,
+   "stats": {
+    "str": 42,
+    "agi": 32,
+    "vit": 38,
+    "per": 28,
+    "mag": 18
+   },
+   "init": 32,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 38
+    },
+    {
+     "name": "Сокрушающий удар",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 84
+    },
+    {
+     "name": "Боевой настрой",
+     "prep": 0,
+     "cd": 4,
+     "m": "buff",
+     "dmg_pct": 30,
+     "turns": 3,
+     "target": "ally_or_self"
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    320000,
+    1280000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-D-rogue",
+   "name": "Манёвренный охотник",
+   "rank": "D",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 320,
+   "atk": 32,
+   "stats": {
+    "str": 32,
+    "agi": 44,
+    "vit": 32,
+    "per": 35,
+    "mag": 18
+   },
+   "init": 44,
+   "dmg_type": "режущее",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 32
+    },
+    {
+     "name": "Уход в сторону",
+     "prep": 0,
+     "cd": 3,
+     "m": "evade"
+    },
+    {
+     "name": "Метка",
+     "prep": 0,
+     "cd": 3,
+     "m": "mark",
+     "hit": 4,
+     "turns": 3
+    },
+    {
+     "name": "Двойной порез",
+     "prep": 0,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 48
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    320000,
+    1280000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-D-caster",
+   "name": "Охотник с активной способностью",
+   "rank": "D",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 320,
+   "atk": 28,
+   "stats": {
+    "str": 24,
+    "agi": 32,
+    "vit": 32,
+    "per": 35,
+    "mag": 46
+   },
+   "init": 32,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 28
+    },
+    {
+     "name": "Энергетический заряд",
+     "prep": 1,
+     "cd": 1,
+     "m": "attack",
+     "dmg": 56
+    },
+    {
+     "name": "Щит маны",
+     "prep": 0,
+     "cd": 4,
+     "m": "shield",
+     "value": 140,
+     "turns": 3,
+     "target": "ally_or_self"
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    320000,
+    1280000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-D-boss",
+   "name": "Старший группы",
+   "rank": "D",
+   "role": "elite",
+   "human": true,
+   "awakened": true,
+   "fearless": true,
+   "biome": "",
+   "archetype": "human",
+   "hp": 460,
+   "atk": 43,
+   "stats": {
+    "str": 49,
+    "agi": 38,
+    "vit": 46,
+    "per": 38,
+    "mag": 28
+   },
+   "init": 38,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 43
+    },
+    {
+     "name": "Сокрушающий удар",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 103
+    },
+    {
+     "name": "Приказ",
+     "prep": 0,
+     "cd": 4,
+     "m": "buff",
+     "dmg_pct": 30,
+     "turns": 3,
+     "target": "ally"
+    },
+    {
+     "name": "Давление",
+     "prep": 0,
+     "cd": 3,
+     "m": "fear",
+     "hit": -4,
+     "turns": 3
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    960000,
+    3840000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-C-fighter",
+   "name": "Боец ближнего боя",
+   "rank": "C",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 610,
+   "atk": 71,
+   "stats": {
+    "str": 66,
+    "agi": 50,
+    "vit": 61,
+    "per": 44,
+    "mag": 28
+   },
+   "init": 50,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 71
+    },
+    {
+     "name": "Сокрушающий удар",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 156
+    },
+    {
+     "name": "Боевой настрой",
+     "prep": 0,
+     "cd": 4,
+     "m": "buff",
+     "dmg_pct": 30,
+     "turns": 3,
+     "target": "ally_or_self"
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    1280000,
+    5120000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-C-rogue",
+   "name": "Манёвренный охотник",
+   "rank": "C",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 500,
+   "atk": 62,
+   "stats": {
+    "str": 50,
+    "agi": 69,
+    "vit": 50,
+    "per": 55,
+    "mag": 28
+   },
+   "init": 69,
+   "dmg_type": "режущее",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 62
+    },
+    {
+     "name": "Уход в сторону",
+     "prep": 0,
+     "cd": 3,
+     "m": "evade"
+    },
+    {
+     "name": "Метка",
+     "prep": 0,
+     "cd": 3,
+     "m": "mark",
+     "hit": 4,
+     "turns": 3
+    },
+    {
+     "name": "Двойной порез",
+     "prep": 0,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 93
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    1280000,
+    5120000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-C-caster",
+   "name": "Охотник с активной способностью",
+   "rank": "C",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 500,
+   "atk": 54,
+   "stats": {
+    "str": 38,
+    "agi": 50,
+    "vit": 50,
+    "per": 55,
+    "mag": 72
+   },
+   "init": 50,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 54
+    },
+    {
+     "name": "Энергетический заряд",
+     "prep": 1,
+     "cd": 1,
+     "m": "attack",
+     "dmg": 108
+    },
+    {
+     "name": "Щит маны",
+     "prep": 0,
+     "cd": 4,
+     "m": "shield",
+     "value": 220,
+     "turns": 3,
+     "target": "ally_or_self"
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    1280000,
+    5120000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-C-boss",
+   "name": "Старший группы",
+   "rank": "C",
+   "role": "elite",
+   "human": true,
+   "awakened": true,
+   "fearless": true,
+   "biome": "",
+   "archetype": "human",
+   "hp": 720,
+   "atk": 78,
+   "stats": {
+    "str": 77,
+    "agi": 61,
+    "vit": 72,
+    "per": 61,
+    "mag": 44
+   },
+   "init": 61,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 78
+    },
+    {
+     "name": "Сокрушающий удар",
+     "prep": 1,
+     "cd": 2,
+     "m": "attack",
+     "dmg": 187
+    },
+    {
+     "name": "Приказ",
+     "prep": 0,
+     "cd": 4,
+     "m": "buff",
+     "dmg_pct": 30,
+     "turns": 3,
+     "target": "ally"
+    },
+    {
+     "name": "Давление",
+     "prep": 0,
+     "cd": 3,
+     "m": "fear",
+     "hit": -4,
+     "turns": 3
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    3840000,
+    15360000
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": ""
+  },
+  {
+   "id": "H-E-tesok",
+   "name": "Хан Тэсок",
+   "rank": "E",
+   "role": "regular",
+   "human": true,
+   "awakened": true,
+   "fearless": false,
+   "biome": "",
+   "archetype": "human",
+   "hp": 210,
+   "atk": 17,
+   "stats": {
+    "str": 22,
+    "agi": 12,
+    "vit": 16,
+    "per": 10,
+    "mag": 10
+   },
+   "init": 18,
+   "dmg_type": "",
+   "weak": "",
+   "weak_pct": 0,
+   "abilities": [
+    {
+     "name": "Удар",
+     "prep": 0,
+     "cd": 0,
+     "m": "attack",
+     "dmg": 17
+    },
+    {
+     "name": "Мана-срыв",
+     "prep": 1,
+     "cd": 3,
+     "m": "attack",
+     "dmg": 38
+    }
+   ],
+   "energy_only": false,
+   "xp": 0,
+   "sys_coins": 0,
+   "material": null,
+   "loot_pool": null,
+   "cash": [
+    0,
+    0
+   ],
+   "body": "плоть",
+   "size_m": 1.75,
+   "weapon": "",
+   "look": "Бывший охотник E-ранга. Мана-каналы выжжены суррогатной «Искрой»: силы рваные, удары то чудовищные, то вялые."
+  }
+ ],
+ "interrogate": {
+  "_note": "v187 Claude: что говорит сдавшийся на допросе. Без спойлеров сезона — слухи и намёки.",
+  "street": [
+   "«Да никто нас не посылал! Сами… ну, почти. Хён с рынка говорил, тут ходит один с деньгами».",
+   "«Мы на районе по вечерам собираем. Кто платит — того не трогаем. Ты не платил».",
+   "«Отпусти, а? Мне ещё долг отдавать. Не тебе, не бойся — тем, кто пострашнее».",
+   "«У метро теперь чужие стоят, в куртках одинаковых. Нас оттуда выдавили, вот мы и сюда».",
+   "Он только сплёвывал кровь и мотал головой. Ничего толкового он так и не сказал."
+  ],
+  "collector": [
+   "«Я просто разношу бумажки. Список дают в конторе над скупкой, кто в списке — к тому и иду».",
+   "«Ты думаешь, это мой долг? Мне за каждого не вернувшего самому срезают процент».",
+   "«Фамилии в списке меняются каждую неделю. Кто-то наверху покупает долги пачками. Зачем — не знаю».",
+   "«Наличные мы сдаём не начальнику. Приезжает машина без номеров, раз в три дня»."
+  ],
+  "awakened": [
+   "«Нас наняли через сеть. Заказ, адрес, время — и всё. Кто платит, мы не видим».",
+   "«Ты ведь не F. Регистрацию прошёл? Тогда тебе ещё хуже, чем мне».",
+   "«Гильдии таких, как я, не берут. А эти берут. Платят наличными, вопросов не задают».",
+   "«Мне сказали — проверить, на что ты способен. Не убивать. Сказали, ты кому-то интересен».",
+   "«Если узнают, что я сдался, — меня найдут быстрее, чем полиция. Так что лучше вызывай полицию»."
+  ],
+  "boss": [
+   "«Думаешь, я тут главный? Я — середина. Выше меня люди, которые в Норвоне не живут».",
+   "«Ты влез в чужой район. Это не угроза, это совет: уезжай».",
+   "«Убьёшь меня — придёт следующий. Отпустишь — я скажу, что тебя не нашёл. Решай».",
+   "«Деньги идут не в карман, а на то, чтобы врата открывались в нужное время. Больше ничего не скажу»."
+  ]
+ }
+}

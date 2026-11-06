@@ -1,0 +1,343 @@
+{
+ "note": "Путь охотника (Claude, 20.10.2026; тексты и названия — GPT t730). Срок рассмотрения и сбор за допуск — балансный черновик, не закон мира (GPT t730: в каноне не нормированы). Канон: регистрация — медосмотр, шар, описание способности, инструктаж; шар показывает цветом максимум маны, не способность; боевой допуск — отдельно, с 19 лет; скупка — по документам; оружие и броня F–D — охотникам. Сроки, сборы и доля скупки — черновик баланса Claude.",
+ "orb": {
+  "thresholds_mp": {
+   "F": 0,
+   "E": 200,
+   "D": 350,
+   "C": 550,
+   "B": 800,
+   "A": 1150,
+   "S": 1600
+  },
+  "beyond_mp": 2200,
+  "colors": {
+   "F": "белый",
+   "E": "зелёный",
+   "D": "синий",
+   "C": "фиолетовый",
+   "B": "красный",
+   "A": "золотой",
+   "S": "чёрный"
+  }
+ },
+ "registration": {
+  "minutes": 180
+ },
+ "license": {
+  "age": 19,
+  "fee": 30000,
+  "minutes": 120,
+  "review_days": 7
+ },
+ "legal_sale_share": 0.9,
+ "shop": [
+  {
+   "id": "shop_blade_f",
+   "name": "Короткий клинок (F)",
+   "slot": "оружие ближнего боя",
+   "rank": "F",
+   "tier": "shop",
+   "price_won": 400000,
+   "gear": {
+    "eq": "weapon",
+    "dur": 40,
+    "hands": 1,
+    "atk": 3
+   }
+  },
+  {
+   "id": "shop_heavy_f",
+   "name": "Тяжёлый топор (F)",
+   "slot": "тяжёлое оружие",
+   "rank": "F",
+   "tier": "shop",
+   "price_won": 520000,
+   "gear": {
+    "eq": "weapon",
+    "dur": 40,
+    "hands": 2,
+    "atk": 4
+   }
+  },
+  {
+   "id": "shop_vest_f",
+   "name": "Стёганый жилет (F)",
+   "slot": "броня",
+   "rank": "F",
+   "tier": "shop",
+   "price_won": 400000,
+   "gear": {
+    "eq": "top",
+    "dur": 40,
+    "def_pct": 8
+   }
+  },
+  {
+   "id": "shop_helmet_f",
+   "name": "Шлем «Дозор» (F)",
+   "slot": "головной убор",
+   "rank": "F",
+   "tier": "shop",
+   "price_won": 240000,
+   "gear": {
+    "eq": "head",
+    "dur": 40,
+    "def_pct": 3
+   }
+  },
+  {
+   "id": "shop_boots_f",
+   "name": "Полевые ботинки (F)",
+   "slot": "обувь",
+   "rank": "F",
+   "tier": "shop",
+   "price_won": 200000,
+   "gear": {
+    "eq": "feet",
+    "dur": 40,
+    "def_pct": 2
+   }
+  },
+  {
+   "id": "shop_blade_e",
+   "name": "Клинок с гардой (E)",
+   "slot": "оружие ближнего боя",
+   "rank": "E",
+   "tier": "shop",
+   "price_won": 1600000,
+   "gear": {
+    "eq": "weapon",
+    "dur": 50,
+    "hands": 1,
+    "atk": 8
+   }
+  },
+  {
+   "id": "shop_heavy_e",
+   "name": "Топор с противовесом (E)",
+   "slot": "тяжёлое оружие",
+   "rank": "E",
+   "tier": "shop",
+   "price_won": 2080000,
+   "gear": {
+    "eq": "weapon",
+    "dur": 50,
+    "hands": 2,
+    "atk": 12
+   }
+  },
+  {
+   "id": "shop_vest_e",
+   "name": "Усиленный жилет (E)",
+   "slot": "броня",
+   "rank": "E",
+   "tier": "shop",
+   "price_won": 1600000,
+   "gear": {
+    "eq": "top",
+    "dur": 50,
+    "def_pct": 8
+   }
+  },
+  {
+   "id": "shop_helmet_e",
+   "name": "Шлем «Заслон» (E)",
+   "slot": "головной убор",
+   "rank": "E",
+   "tier": "shop",
+   "price_won": 960000,
+   "gear": {
+    "eq": "head",
+    "dur": 50,
+    "def_pct": 3
+   }
+  },
+  {
+   "id": "shop_boots_e",
+   "name": "Ботинки с накладками (E)",
+   "slot": "обувь",
+   "rank": "E",
+   "tier": "shop",
+   "price_won": 800000,
+   "gear": {
+    "eq": "feet",
+    "dur": 50,
+    "def_pct": 2
+   }
+  },
+  {
+   "id": "shop_blade_d",
+   "name": "Усиленный клинок (D)",
+   "slot": "оружие ближнего боя",
+   "rank": "D",
+   "tier": "shop",
+   "price_won": 6400000,
+   "gear": {
+    "eq": "weapon",
+    "dur": 70,
+    "hands": 1,
+    "atk": 19
+   }
+  },
+  {
+   "id": "shop_heavy_d",
+   "name": "Двуручный секач (D)",
+   "slot": "тяжёлое оружие",
+   "rank": "D",
+   "tier": "shop",
+   "price_won": 8320000,
+   "gear": {
+    "eq": "weapon",
+    "dur": 70,
+    "hands": 2,
+    "atk": 30
+   }
+  },
+  {
+   "id": "shop_vest_d",
+   "name": "Панцирный жилет (D)",
+   "slot": "броня",
+   "rank": "D",
+   "tier": "shop",
+   "price_won": 6400000,
+   "gear": {
+    "eq": "top",
+    "dur": 70,
+    "def_pct": 8
+   }
+  },
+  {
+   "id": "shop_helmet_d",
+   "name": "Шлем «Оплот» (D)",
+   "slot": "головной убор",
+   "rank": "D",
+   "tier": "shop",
+   "price_won": 3840000,
+   "gear": {
+    "eq": "head",
+    "dur": 70,
+    "def_pct": 3
+   }
+  },
+  {
+   "id": "shop_boots_d",
+   "name": "Ботинки «Опора» (D)",
+   "slot": "обувь",
+   "rank": "D",
+   "tier": "shop",
+   "price_won": 3200000,
+   "gear": {
+    "eq": "feet",
+    "dur": 70,
+    "def_pct": 2
+   }
+  }
+ ],
+ "sport": [
+  {
+   "id": "sport_bat",
+   "name": "Алюминиевая бита",
+   "slot": "спортинвентарь",
+   "rank": "F",
+   "tier": "sport",
+   "price_won": 49000,
+   "gear": {
+    "eq": "weapon",
+    "dur": 25,
+    "hands": 1,
+    "atk": 2,
+    "mundane": true
+   }
+  },
+  {
+   "id": "sport_bike_helmet",
+   "name": "Велосипедный шлем",
+   "slot": "спортинвентарь",
+   "rank": "F",
+   "tier": "sport",
+   "price_won": 39000,
+   "gear": {
+    "eq": "head",
+    "dur": 20,
+    "def_pct": 2,
+    "mundane": true
+   }
+  },
+  {
+   "id": "sport_moto_armor",
+   "name": "Мотозащита «черепаха»",
+   "slot": "спортинвентарь",
+   "rank": "F",
+   "tier": "sport",
+   "price_won": 129000,
+   "gear": {
+    "eq": "top",
+    "dur": 25,
+    "def_pct": 4,
+    "mundane": true
+   }
+  },
+  {
+   "id": "sport_pads",
+   "name": "Наколенники и щитки",
+   "slot": "спортинвентарь",
+   "rank": "F",
+   "tier": "sport",
+   "price_won": 35000,
+   "gear": {
+    "eq": "bottom",
+    "dur": 20,
+    "def_pct": 2,
+    "mundane": true
+   }
+  },
+  {
+   "id": "sport_trek_boots",
+   "name": "Трекинговые ботинки",
+   "slot": "спортинвентарь",
+   "rank": "F",
+   "tier": "sport",
+   "price_won": 89000,
+   "gear": {
+    "eq": "feet",
+    "dur": 30,
+    "def_pct": 1,
+    "stat": {
+     "agi": 1
+    },
+    "mundane": true
+   }
+  },
+  {
+   "id": "sport_lift_belt",
+   "name": "Атлетический пояс",
+   "slot": "спортинвентарь",
+   "rank": "F",
+   "tier": "sport",
+   "price_won": 59000,
+   "gear": {
+    "eq": "belt",
+    "dur": 30,
+    "stat": {
+     "str": 1
+    },
+    "mundane": true
+   }
+  },
+  {
+   "id": "sport_windbreaker",
+   "name": "Ветровка с капюшоном",
+   "slot": "спортинвентарь",
+   "rank": "F",
+   "tier": "sport",
+   "price_won": 69000,
+   "gear": {
+    "eq": "cloak",
+    "dur": 20,
+    "def_pct": 1,
+    "mundane": true
+   }
+  }
+ ]
+}

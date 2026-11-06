@@ -1,0 +1,169 @@
+{
+  "note": "Публичные карточки (черновик Claude по открытому канону; GPT может поправить). name_unknown — как герой называет человека до знакомства, name_known — после. known_from_start — герой знает человека с начала игры.",
+  "characters": [
+    {
+      "id": "haerin",
+      "name_unknown": "Классная руководительница",
+      "name_known": "Ким Хэрин",
+      "known_from_start": false,
+      "portrait": "p_haerin",
+      "known_via": {
+        "location": "nowon:school",
+        "period": "school_term",
+        "how": "школьный список класса"
+      },
+      "gender": "female",
+      "adult": true
+    },
+    {
+      "id": "junho",
+      "name_unknown": "Одноклассник",
+      "name_known": "Пак Чунхо",
+      "known_from_start": true,
+      "portrait": "p_junho",
+      "gender": "male",
+      "adult": true
+    },
+    {
+      "id": "somi",
+      "name_unknown": "Одноклассница",
+      "name_known": "Юн Соми",
+      "known_from_start": false,
+      "portrait": "p_somi",
+      "known_via": {
+        "location": "nowon:school",
+        "period": "school_term",
+        "how": "школьный список класса"
+      },
+      "gender": "female",
+      "adult": true
+    },
+    {
+      "id": "minhee",
+      "name_unknown": "Заведующая магазином",
+      "name_known": "Пэ Минхи",
+      "portrait": "p_minhee",
+      "gender": "female",
+      "adult": true
+    },
+    {
+      "id": "repair_giho",
+      "name_unknown": "Ремонтник дома",
+      "name_known": "Сон Гихо",
+      "portrait": "p_repair_giho",
+      "gender": "male",
+      "adult": true
+    },
+    {
+      "id": "study_clerk_yerin",
+      "name_unknown": "Администратор читального зала",
+      "name_known": "Им Ерин",
+      "portrait": "p_study_clerk_yerin",
+      "gender": "female",
+      "adult": true
+    },
+    {
+      "id": "market_vendor_hyejin",
+      "name_unknown": "Продавщица на рынке",
+      "name_known": "Ли Хеджин",
+      "portrait": "p_market_vendor_hyejin",
+      "gender": "female",
+      "adult": true
+    },
+    {
+      "id": "doctor_doyun",
+      "name_unknown": "Врач клиники",
+      "name_known": "Чхве Доюн",
+      "known_from_start": false,
+      "portrait": "p_doctor_doyun",
+      "gender": "male",
+      "adult": true
+    },
+    {
+      "id": "clinic_manager",
+      "name_unknown": "Администратор клиники",
+      "name_known": "Администратор клиники",
+      "known_from_start": false,
+      "portrait": "p_clinic_manager",
+      "gender": "male",
+      "adult": true
+    },
+    {
+      "id": "clinic_counter_jieun",
+      "name_unknown": "Сотрудница регистратуры",
+      "name_known": "Хан Чиын",
+      "known_from_start": false,
+      "portrait": "p_clinic_counter_jieun",
+      "gender": "female",
+      "adult": true
+    },
+    {
+      "id": "pc_staff_daeho",
+      "name_unknown": "Сотрудник компьютерного клуба",
+      "name_known": "Кан Дэхо",
+      "known_from_start": false,
+      "portrait": "p_pc_staff_daeho",
+      "gender": "male",
+      "adult": true
+    },
+    {
+      "id": "dojo_coach_taeho",
+      "name_unknown": "Тренер",
+      "name_known": "О Тэхо",
+      "known_from_start": false,
+      "portrait": "p_dojo_coach_taeho",
+      "gender": "male",
+      "adult": true
+    },
+    {
+      "id": "metro_vendor_bora",
+      "name_unknown": "Продавщица у метро",
+      "name_known": "Нам Бора",
+      "known_from_start": false,
+      "portrait": "p_metro_vendor_bora",
+      "gender": "female",
+      "adult": true
+    },
+    {
+      "id": "social_eunseo",
+      "name_unknown": "Сотрудница центра соцподдержки",
+      "name_known": "Чон Ынсо",
+      "known_from_start": false,
+      "portrait": "p_social_eunseo",
+      "gender": "female",
+      "adult": true
+    },
+    {
+      "id": "warehouse_keeper",
+      "name_unknown": "Кладовщик скупщика",
+      "name_known": "Кладовщик скупщика",
+      "known_from_start": false,
+      "gender": "male",
+      "adult": true
+    },
+    {
+      "id": "whitehaven_support",
+      "name_unknown": "Консультант спонсорской программы",
+      "name_known": "Консультант спонсорской программы",
+      "known_from_start": false,
+      "gender": "male",
+      "adult": true
+    },
+    {
+      "id": "miryeon",
+      "name_unknown": "Дежурная «Пурам»",
+      "name_known": "Мирён",
+      "known_from_start": false,
+      "gender": "female",
+      "adult": true
+    },
+    {
+      "id": "seoyeon",
+      "name_unknown": "Известная охотница",
+      "name_known": "Хан Соён",
+      "known_from_start": false,
+      "gender": "female",
+      "adult": true
+    }
+  ]
+}
