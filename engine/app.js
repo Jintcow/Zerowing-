@@ -121,6 +121,13 @@ G.define('app', function (G) {
   let popOpen = false;
   // Уведомление телефона (банк, письма): баннер сверху в стиле телефона, не окно Системы. Письмо остаётся в «Почте».
   const APP_IC = { 'Банк': 'coins', 'Почта': 'chat' };
+  // Mobile phone banners must never cover iOS status bar / Dynamic Island.
+  // Set the offset on the actual DOM layer (not just the stylesheet), so the
+  // overlay also stays correctly positioned during a staggered PWA update.
+  const pushSafeStyle = () => window.matchMedia && window.matchMedia('(max-width: 600px)').matches
+    ? 'padding-top:max(98px,calc(env(safe-area-inset-top,0px) + 28px));overflow-y:auto'
+    : null;
+
   function chatPush() {
     if (!save.day || screen === 'chat' || screen === 'chatwarn') return false;
     const seen = save.chat_pushed || (save.chat_pushed = {}), sc = G.plot.chats(save).find((x) => !seen[x.id]); if (!sc) return false;
@@ -128,7 +135,7 @@ G.define('app', function (G) {
     popOpen = true;
     const close = (open) => { layer.classList.add('out'); setTimeout(() => { layer.remove(); popOpen = false; if (open) chatThread(w); else sysPop(); }, 160); };
     const ok = h('button', { type: 'button', class: 'syspop-ok push-btn', onclick: () => close(false) }, 'Позже');
-    const layer = h('div', { class: 'syspop push', role: 'alertdialog', 'aria-label': 'Чат: ' + G.plot.name(save, w) },
+    const layer = h('div', { class: 'syspop push', style: pushSafeStyle(), role: 'alertdialog', 'aria-label': 'Чат: ' + G.plot.name(save, w) },
       h('div', { class: 'push-card' }, h('div', { class: 'push-top' }, h('span', { class: 'push-ic' }, icon('chat')), h('span', null, 'ЧАТ'), h('small', null, 'сейчас')),
         h('strong', null, G.plot.name(save, w)), h('p', null, first.length > 120 ? first.slice(0, 120) + '…' : first),
         h('div', { class: 'push-row' }, h('button', { type: 'button', class: 'push-btn push-btn--open', onclick: () => close(true) }, 'Открыть'), ok)));
@@ -141,7 +148,7 @@ G.define('app', function (G) {
     popOpen = true;
     const close = (open) => { layer.classList.add('out'); setTimeout(() => { layer.remove(); popOpen = false; if (open) { G.mail.read(save, m.id); while (G.mail.nextPush(save)); UI.mailOpen = m.id; navigate('mailView'); } else sysPop(); }, 160); };
     const ok = h('button', { type: 'button', class: 'syspop-ok push-btn', onclick: () => close(false) }, 'Закрыть');
-    const layer = h('div', { class: 'syspop push', role: 'alertdialog', 'aria-label': m.app + ': ' + m.title },
+    const layer = h('div', { class: 'syspop push', style: pushSafeStyle(), role: 'alertdialog', 'aria-label': m.app + ': ' + m.title },
       h('div', { class: 'push-card' },
         h('div', { class: 'push-top' }, h('span', { class: 'push-ic' }, icon(APP_IC[m.app] || 'chat')), h('span', null, m.app.toUpperCase()), h('small', null, 'сейчас')),
         h('strong', null, m.title), h('p', null, m.from ? m.from + ': ' + m.text : m.text),
