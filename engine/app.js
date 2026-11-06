@@ -744,8 +744,8 @@ G.define('app', function (G) {
       else if (st.n !== undefined) box = h('div', { class: 'frame dialogue is-narr' }, h('p', null, st.n));
       else if (st.msg !== undefined) box = h('div', { class: 'frame dialogue is-msg' }, h('strong', null, '✉ ' + G.plot.name(save, st.from || 'narrator')), h('p', null, st.msg));
       else {
-        ui.append(h('div', { class: 'nameplate' }, G.plot.name(save, who)));
-        box = h('div', { class: 'frame dialogue' }, st.how ? h('small', { class: 'delivery' }, st.how) : null, h('p', null, st.t));
+        ui.append(h('div', { class: 'nameplate' }, h('span', { class: 'nameplate-name' }, G.plot.name(save, who)), st.how ? h('small', { class: 'nameplate-how' }, '(' + st.how + ')') : null));
+        box = h('div', { class: 'frame dialogue' }, h('p', null, st.t));
       }
       box.onclick = () => turn(); box.style.cursor = 'pointer'; ui.append(box);
       // Длинная реплика — по три строки за раз: «Дальше» листает её, потом переходит к следующему шагу.
