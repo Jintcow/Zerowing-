@@ -764,7 +764,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-o
 /* уведомления телефона и почта (03.11.2026): не Система — свой, «телефонный» вид */
 .syspop.push{place-items:start center;padding:14px 12px;background:#0006;backdrop-filter:none}
 .push-card{width:min(420px,100%);background:#f4f5f8f2;color:#101217;border-radius:18px;padding:12px 14px 12px;box-shadow:0 12px 40px #0008;animation:push-in .22s ease-out;font-family:var(--f-body)}
-@keyframes push-in{from{transform:translateY(-30px);opacity:0}to{transform:none;opacity:1}}
+@keyframes push-in{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
 .push-top{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.04em;color:#5b6070}
 .push-top small{margin-left:auto;font-weight:500;letter-spacing:0}
 .push-ic{width:22px;height:22px;border-radius:6px;background:var(--blue);color:#fff;display:grid;place-items:center}
@@ -932,5 +932,26 @@ button, a, .tile, .dialogue { touch-action:manipulation; -webkit-tap-highlight-c
   }
   .screen > .navbar {
     padding-bottom: max(42px, calc(env(safe-area-inset-bottom, 0px) + 12px));
+  }
+}
+
+
+/* iPhone: phone/chat/mail notifications are fixed overlays appended to body.
+   They do not inherit .screen padding, so place the top of the card below
+   the clock, status icons and Dynamic Island without moving other UI. */
+@media (max-width: 600px) {
+  .syspop.push {
+    padding-top: max(98px, calc(env(safe-area-inset-top, 0px) + 28px));
+    padding-bottom: max(20px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+  }
+}
+
+/* v4: these overlays are mounted on document.body, outside the screen safe-area. */
+@media (max-width: 600px) {
+  body > .syspop.push {
+    padding-top: max(98px, calc(env(safe-area-inset-top, 0px) + 28px));
+    align-items: start;
+    overflow-y: auto;
   }
 }
