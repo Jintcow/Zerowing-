@@ -15,6 +15,7 @@ G.define('day', function(G) {
     if(G.school)G.school.morning(s);
     if(G.heat)G.heat.morning(s);
     if(G.forge)G.forge.morning(s);   // просроченные заказы кузнеца и Чо   // внимание Ассоциации: остывает; на порогах — визит инспектора   // учёба: Сунын, результаты, предупреждения классного   // быт: счета, пени, еда
+    unlockMorning(s);
     if(!s.hero.dead)G.save.write('auto',s,data);
   }
   // Снимок на начало дня — для экрана «Итог дня» (что изменилось за день).
@@ -34,7 +35,13 @@ G.define('day', function(G) {
     const mp=Math.max(0,Math.min(cap-h.mp,Math.round(G.system.maxMp(h)*(c.sleep_mp??0.5)*k)));return {hp,mp};}
   function next(s,data){if(s.day.slot!==3||s.hero.dead)throw Error('День ещё не завершён');(s.history||(s.history={}))[s.day.date]=s.day.used.map(u=>u.activity).filter(a=>a!=='story');const g=sleepGain(s.hero,data,s);s.hero.hp+=g.hp;if(g.mp)G.system.addMp(s.hero,g.mp);begin(s,data,s.day.n+1,G.clock.advance(s.day.date+'T07:00',1440).slice(0,10));}
   function count(s,id){return s.day.used.filter(x=>x.activity===id || (x.also || []).includes(id)).length;}
+  // Empty mornings are playable, including existing saves.
+  function unlockMorning(s){
+    if(s.day&&s.day.slot===0&&!s.day.story_done&&!s.hero.dead&&!s.battle&&!s.pending&&!s.gateRun&&!(s.plot&&s.plot.run)&&(!G.plot||!G.plot.storyNext(s)))s.day.story_done=true;
+    return !!(s.day&&s.day.story_done);
+  }
   function can(s,id,data){
+    unlockMorning(s);
     if(s.hero.dead)return 'Конец';if(s.battle||s.pending||(s.plot&&s.plot.run))return 'Сначала заверши текущее дело';
     if(s.day.slot===3)return 'Ночью — итог дня';if(!s.day.story_done)return 'Сначала сюжетный слот';if(s.penalty_zone&&id!=='penalty')return 'Сначала — Штрафная зона';
     if(id==='train'&&count(s,id)>=1)return 'Тренировка уже была сегодня';
@@ -97,7 +104,7 @@ G.define('day', function(G) {
   function finishPlotBattle(s,data){const st=s.battle;if(!st||!st.over)throw Error('Бой ещё идёт');const def=s.plotBattle||{};const result=G.combat.finish(s,data,st);delete s.battle;delete s.battleActivity;delete s.plotBattle;if(G.quests&&!s.hero.dead)G.quests.event(s,'battle',G.plot.summarize(st));if(!s.hero.dead)G.plot.battleDone(s,st,def);else if(def.bad){const E=((data.story||{}).endings||{})[def.bad];if(E)s.hero.ending={id:def.bad,title:E.title,text:E.text};}return result;}
   function startPlotBattle(s,data,def){const ids=(def.enemies||[]).map(e=>typeof e==='object'?e.species:e);s.battle=G.combat.start(s,data,ids,{lethal:def.lethal!==false,allies:def.allies,survive:!!def.capture});s.battleActivity='plot';s.plotBattle=def;return s.battle;}
   // Сцена-предложение в слоте дня/вечера (mode:"offer") заняла слот целиком.
-  function finishScene(s,data,title){if(s.day.slot===0||s.day.slot===3)return;const old=s.plot.run;s.plot.run=null;advance(s,data,'scene',title||'Сцена');s.plot.run=old;}
+  function finishScene(s,data,title){if(s.day.slot===3)return;const old=s.plot.run;s.plot.run=null;advance(s,data,'scene',title||'Сцена');s.plot.run=old;}
   // Работа: конкретные работодатели (places.json → jobs), у каждой — свои слоты, оплата и требования.
   function jobs(s,data){const slot=['morning','day','evening','night'][s.day.slot];return ((data.places||{}).jobs||[]).filter(j=>!j.if||!G.plot||G.plot.test(s,j.if)).map(j=>({job:j,why:G.gates&&G.gates.breachAt(s,j.place)?'Прорыв: место оцеплено':!(j.slots||[]).includes(slot)?'Смены: '+j.slots.map(x=>({day:'день',evening:'вечер',morning:'утро'})[x]).join(', '):j.need&&G.plot&&!G.plot.test(s,j.need)?(j.need_text||'Не подходишь'):''}));}
   // Дело делается в своём месте: Сиу идёт туда сам (по району — без затрат времени).
@@ -105,7 +112,7 @@ G.define('day', function(G) {
   // Навигатор: перейти в другое место района. Слот не тратится.
   function move(s,data,place){if(s.hero.dead)throw Error('Конец');if(s.battle||s.pending||(s.plot&&s.plot.run))throw Error('Сначала заверши текущее дело');if(!data.locById[place])throw Error('Нет такого места');s.hero.location=place;if(G.quests)G.quests.event(s,'visit',{place});}
   function escape(s,data,how){const err=can(s,'human',data);if(err)throw Error(err);if(how==='bribe')G.hero.charge(s.hero,s.clock,-data.rules.day.bribe,'Откуп');else if(how==='help'){if(!Object.values(s.relations).some(r=>r.trust>=3))throw Error('Некого позвать');}else if(how!=='leave')throw Error('Неизвестный выход');advance(s,data,'human','Конфликт завершён без боя',{how});}
-  return {jobs,move,goTo,gateStep,gateLeave,finishPlotBattle,startPlotBattle,finishScene,sleepGain,snapshot,SLOTS,HOURS,stamp,die,validate,begin,advance,next,count,can,action,finishStory,finishPerson,finishBattle,escape};
+  return {unlockMorning,jobs,move,goTo,gateStep,gateLeave,finishPlotBattle,startPlotBattle,finishScene,sleepGain,snapshot,SLOTS,HOURS,stamp,die,validate,begin,advance,next,count,can,action,finishStory,finishPerson,finishBattle,escape};
 });
 // Метки совместимости для проверенных модулей. Ни один вызов spend не расходует слот:
 // затраты завершает day.action/finishBattle/finishStory ровно один раз.

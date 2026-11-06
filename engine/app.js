@@ -337,7 +337,7 @@ G.define('app', function (G) {
   }
   function dayHead() {
     const d = dateParts(), slot = G.day.SLOTS[save.day.slot], w = G.passives.weather(save);
-    const free = save.day.story_done && save.day.slot > 0 && save.day.slot < 3;
+    const free = save.day.story_done && save.day.slot < 3;
     return h('header', { class: 'dayhead' }, deco('dots dots--fade-l'),
       h('h1', null, h('span', { class: 'bigdate', 'aria-hidden': 'true' }, d.dd, h('small', null, '/' + d.mm)),
         h('span', { class: 'band dayband' }, slot), h('span', { class: 'sr' }, ' · ' + d.full)),
@@ -361,6 +361,7 @@ G.define('app', function (G) {
       t.length > 1 ? h('details', null, h('summary', null, '▸ Ещё ' + (t.length - 1) + ' ▾'), t.slice(1).map((x) => h('p', null, x))) : null);
   }
   function day() {
+    G.day.unlockMorning(save);
     page('day', 'scr-day', G.day.SLOTS[save.day.slot]);
     add(h('div', { class: 'topbar' }, h('span', { class: 'label' }, whereLabel()), h('span', { class: 'label' }, 'День ' + String(save.day.n).padStart(2, '0') + ' · ' + ((data.locById[save.hero.location] || {}).name || ''))),
       dayHead(),
@@ -1196,7 +1197,7 @@ G.define('app', function (G) {
   }
   const ACT_OF = { rest: 'Отдых', study: 'Учёба', work: 'Работа', train: 'Тренировка', person: 'Встреча с человеком' };
   function placeView(id) {
-    const p = data.locById[id], here = save.hero.location === id, free = save.day.story_done && save.day.slot > 0 && save.day.slot < 3;
+    const p = data.locById[id], here = save.hero.location === id, free = save.day.story_done && save.day.slot < 3;
     page('place', 'scr-place', p.name);
     const bg = G.art.loc(id);
     add(h('div', { class: 'deco scene-bg', style: bg ? 'background-image:url("' + bg + '")' : null }),
